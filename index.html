@@ -22,7 +22,7 @@
 					looking at my portfolio.<br />
 					Scroll down to see some <br />
 					of my projects or check <br />
-					out my <strong><a href="Bret_Abel_Resume.pdf">resume.</a></strong></h1>
+					out my <strong><a href="resume_bret_abel_bungie.pdf">resume.</a></strong></h1>
 				</div>
 			</header>
 
@@ -44,74 +44,116 @@
 				<!-- Projects -->
 					<section id="two">
 						<h2>Some of My Projects</h2>
-						<div class="row">
+						<!-- Slideshow container -->
+						<div class="slideshow-container">
+
+							<!-- Full-width images with number and caption text -->
+							<div class="mySlides fade">
+							<!-- <div class="numbertext">1 / 3</div> -->
+							<!-- UE5 AI Patrol / Chase Project -->
 							<article class="col-6 col-12-xsmall work-item">
 								<a href="https://www.youtube.com/watch?v=icB-vIwtceo" data-poptrox="youtube,800x480" class="image fit thumb"><img src="images/ue5_project/ue_patrol_overview.png" alt="" /></a>
 								<h3>UE5 NPC Patrol Example</h3>
-								<p>In the video, you can see an NPC following a patrol path. The patrol points are AI objects as well and they tell the patroller which way to face once they reach the point. It can be toggled whether or not the patroller repeats the loop, reverses the loop, or stops. It's only me working on this, but I'm still using P4 for version control just to be thorough.
+								<p>Click "View" for a video to see an NPC following a patrol path. The patrol points are AI objects as well and they tell the patroller which way to face once they reach the point. It can be toggled whether or not the patroller repeats the loop, reverses the loop, or stops. It's only me working on this, but I'm still using P4 for version control just to be thorough.
 								</p>
 							</article>
+							</div>
+						<!-- Behavior Tree and Blueprints for patrolling -->
+							<div class="mySlides fade">
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/ue5_project/BehaviorTree_Patrol.png"	 class="image fit thumb"><img src="images/ue5_project/BehaviorTree_Patrol.png" alt="" /></a>
+								<h3>NPC Behavior Tree</h3>
+								<p>Essentially, the NPC patrols if they're currently unaware of the player. It moves to a random spot if the patrol is broken.</p>
+							</article>
+							</div>
+
+							<div class="mySlides fade">
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/ue5_project/BTTask_Patrol.png"	 class="image fit thumb"><img src="images/ue5_project/BTTask_Patrol.png" alt="" /></a>
+								<h3>Patrol Task in Detail</h3>
+								<p>Here's the blueprint for the BTTask itself. It starts by checking for a valid patrol path and then kicks off the main patrol event, which loops until broken by some stimuli (the player).
+									 Upon reaching the patrol point, the BTTask checks how long the NPC should wait at that point and which direction it should face. Once done waiting, the NPC either continues to the next point or, if at the end of the path, checks to see whether it should restart, return, or stop. </p>
+							</article>
+							</div>
+							
+							<div class="mySlides fade">
 							<article class="col-6 col-12-xsmall work-item">
 								<a href="https://www.youtube.com/watch?v=M52ZMe-5pag" data-poptrox="youtube,800x480" class="image fit thumb"><img src="images/ue5_project/ue_patrol_overview.png" alt="" /></a>
 								<h3>UE5 NPC Chase and Search Example</h3>
-								<p>In the video, you can see an NPC following the player. At the time of recording, the NPC AI uses UE5's sight, sound, touch, and prediction perception sense to determine the player's current and last known location. I'm currently working on a "take cover" behavior tree using UE5's EQS system, but I don't have that integrated into the main patrol behavior yet.
+								<p>Click "View" for a video to see the NPC following the player. At the time of recording, the NPC AI uses UE5's sight, sound, touch, and prediction perception sense to determine the player's current and last known location. I'm currently working on a "take cover" behavior tree using UE5's EQS system, but I don't have that integrated into the main patrol behavior yet.
 								</p>
 							</article>
-							<!-- Legend of the Cats -->
+							</div>
+
+							<div class="mySlides fade">
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="https://youtu.be/cv9TVCX-XRE?si=S-OECPVX7i4hSQsO" data-poptrox="youtube,800x480" class="image fit thumb"><img src="images/thumbs/LOTC_thumbnail.png" alt="" /></a>
-								<h3>Legend of the Cats</h3>
-								<p>This Roblox game is a project that I've been working on with one of my students for the past several months, who has been kind enough to let me share this here with you. I guess you could say he's the Creative Director and I'm the CTO of the project. Click the thumbnail to check out a video or <a href="https://www.roblox.com/games/16571289821/The-Legend-of-The-Cats" target="_blank" rel="noopener noreferrer">see the Roblox page here.</a>
-									The core gameplay loop revolves around rescuing, capturing, unlocking, and upgrading different types of cats in a fantasy setting. The source code is private within Roblox's built-in source control, but I'm happy to talk about it.
-								</p>
+								<a href="images/ue5_project/HandleSightSense.png"	 class="image fit thumb"><img src="images/ue5_project/HandleSightSense.png" alt="" /></a>
+								<h3>Perception Handling</h3>
+								<p>The perception handling stuff is all pretty similar, so here's Sight as an example. Validate that the stimulus is the right kind, set the behavior tree's TargetActor to the player, and then use the prediction sense to track the player's actual location up to a variable maximum (default is 1 second). </p>
 							</article>
-							<!-- Horse Game -->
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="https://youtu.be/pssDWXyve1I" data-poptrox="youtube,800x480" class="image fit thumb"><img src="images/thumbs/stableAlgorithms_title.jpg" alt="" /></a>
-								<h3>Stable Algorithms</h3>
-								<p>This is a game made for kids to practice basic arithmetic.
-									Click the thumbnail for a demo and then  <a href="https://github.com/bretabel/cool-Math-Game/blob/master/Horse%20Game/src/horsegame/HorseGame.java" target="_blank" rel="noopener noreferrer">see the Java source code here.</a>
-									This project was done as part of a group exercise with the goal of, beyond making a functional game, taking turns leading daily SCRUM meetings and getting familiar with agile methodology.
-								</p>
-							</article>
-							<!-- Terrain Generation -->
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/thumbs/generation-screenshot.png"	 class="image fit thumb"><img src="images/thumbs/generation-screenshot.png" alt="" /></a>
-								<h3>Terrain / Map Generation</h3>
-								<p>This is a 2D map / terrain generation project I've been working on in Unity. I used Perlin Noise generation to create biomes and scripted tiles that were smart enough to know which sprite to use based on their biome and neighbors. <a href="terrain-generator/index.html" target="_blank" rel="noopener noreferrer">Try it out in your browser!</a>
-								 I add to this project when I have free time, so watch this space! Big thanks to Pipoya and MrWolfyer over on itch.io for publishing the art and UI assets I used. </p>
-							</article>
-							<!-- Matrix Multiplication -->
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/thumbs/confused_math_lady.jpg" class="image fit thumb"><img src="images/thumbs/confused_math_lady.jpg" alt="" /></a>
-								<h3>Parallel vs. Sequential Matrix Multiplication</h3>
-								<p>This is a more academic project analyzing the relative speed-up gained from parallelizing an algorithm with a lot of work to do. </br>
-								Check out the C source code <a href="https://github.com/bret-abel/portfolio/blob/master/multithreaded/mmm.c" target="_blank" rel="noopener noreferrer">here</a> along with a more detailed description of my process <a href="https://github.com/bret-abel/portfolio/tree/master/multithreaded" target="_blank" rel="noopener noreferrer">here.</a></p>
-							</article>
-							<!-- A* Pathfinding -->
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="https://youtu.be/60nRxH5j2wo" data-poptrox="youtube,800x480" class="image fit thumb"><img src="images/a_star_demo.png" alt="" /></a>
-								<h3>A* Pathfinding Visualization</h3>
-								<p>This is a visualization for A* algorithm that demonstrates the pathfinding process with different colors on a grid. Click the thumbnail for a video then see the Python code <a href="https://github.com/bret-abel/portfolio/blob/master/algorithms/shortest%20paths/astar.py" target="_blank" rel="noopener noreferrer">here.</a></p>
-							</article>
-							<!--     Extra thumbnails!
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-								<h3>Nunc enim commodo aliquet</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
-								<h3>Risus ornare lacinia</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							-->
+							</div>
+							<!-- Next and previous buttons -->
+							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+							<a class="next" onclick="plusSlides(1)">&#10095;</a>
 						</div>
-						<!-- Full Portfolio Button
-						<ul class="actions">
-							<li><a href="#" class="button">Full Portfolio</a></li>
-						</ul> 
+						<br>
+						
+						<div class="row">
+						<!-- Legend of the Cats -->
+						<article class="col-6 col-12-xsmall work-item">
+							<a href="https://youtu.be/cv9TVCX-XRE?si=S-OECPVX7i4hSQsO" data-poptrox="youtube,800x480" class="image fit thumb"><img src="images/thumbs/LOTC_thumbnail.png" alt="" /></a>
+							<h3>Legend of the Cats</h3>
+							<p>This Roblox game is a project that I've been working on with one of my students for the past several months, who has been kind enough to let me share this here with you. I guess you could say he's the Creative Director and I'm the CTO of the project. Click the thumbnail to check out a video or <a href="https://www.roblox.com/games/16571289821/The-Legend-of-The-Cats" target="_blank" rel="noopener noreferrer">see the Roblox page here.</a>
+								The core gameplay loop revolves around rescuing, capturing, unlocking, and upgrading different types of cats in a fantasy setting. The source code is private within Roblox's built-in source control, but I'm happy to talk about it.
+							</p>
+						</article>
+						<!-- Horse Game -->
+						<article class="col-6 col-12-xsmall work-item">
+							<a href="https://youtu.be/pssDWXyve1I" data-poptrox="youtube,800x480" class="image fit thumb"><img src="images/thumbs/stableAlgorithms_title.jpg" alt="" /></a>
+							<h3>Stable Algorithms</h3>
+							<p>This is a game made for kids to practice basic arithmetic.
+								Click the thumbnail for a demo and then  <a href="https://github.com/bretabel/cool-Math-Game/blob/master/Horse%20Game/src/horsegame/HorseGame.java" target="_blank" rel="noopener noreferrer">see the Java source code here.</a>
+								This project was done as part of a group exercise with the goal of, beyond making a functional game, taking turns leading daily SCRUM meetings and getting familiar with agile methodology.
+							</p>
+						</article>
+						<!-- Terrain Generation -->
+						<article class="col-6 col-12-xsmall work-item">
+							<a href="images/thumbs/generation-screenshot.png"	 class="image fit thumb"><img src="images/thumbs/generation-screenshot.png" alt="" /></a>
+							<h3>Terrain / Map Generation</h3>
+							<p>This is a 2D map / terrain generation project I've been working on in Unity. I used Perlin Noise generation to create biomes and scripted tiles that were smart enough to know which sprite to use based on their biome and neighbors. <a href="terrain-generator/index.html" target="_blank" rel="noopener noreferrer">Try it out in your browser!</a>
+								I add to this project when I have free time, so watch this space! Big thanks to Pipoya and MrWolfyer over on itch.io for publishing the art and UI assets I used. </p>
+						</article>
+						<!-- Matrix Multiplication -->
+						<article class="col-6 col-12-xsmall work-item">
+							<a href="images/thumbs/confused_math_lady.jpg" class="image fit thumb"><img src="images/thumbs/confused_math_lady.jpg" alt="" /></a>
+							<h3>Parallel vs. Sequential Matrix Multiplication</h3>
+							<p>This is a more academic project analyzing the relative speed-up gained from parallelizing an algorithm with a lot of work to do. </br>
+							Check out the C source code <a href="https://github.com/bret-abel/portfolio/blob/master/multithreaded/mmm.c" target="_blank" rel="noopener noreferrer">here</a> along with a more detailed description of my process <a href="https://github.com/bret-abel/portfolio/tree/master/multithreaded" target="_blank" rel="noopener noreferrer">here.</a></p>
+						</article>
+						<!-- A* Pathfinding -->
+						<article class="col-6 col-12-xsmall work-item">
+							<a href="https://youtu.be/60nRxH5j2wo" data-poptrox="youtube,800x480" class="image fit thumb"><img src="images/a_star_demo.png" alt="" /></a>
+							<h3>A* Pathfinding Visualization</h3>
+							<p>This is a visualization for A* algorithm that demonstrates the pathfinding process with different colors on a grid. Click the thumbnail for a video then see the Python code <a href="https://github.com/bret-abel/portfolio/blob/master/algorithms/shortest%20paths/astar.py" target="_blank" rel="noopener noreferrer">here.</a></p>
+						</article>
+						<!--     Extra thumbnails!
+						<article class="col-6 col-12-xsmall work-item">
+							<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
+							<h3>Nunc enim commodo aliquet</h3>
+							<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+						</article>
+						<article class="col-6 col-12-xsmall work-item">
+							<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
+							<h3>Risus ornare lacinia</h3>
+							<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+						</article>
 						-->
+					</div>
+					<!-- Full Portfolio Button
+					<ul class="actions">
+						<li><a href="#" class="button">Full Portfolio</a></li>
+					</ul> 
+					-->
 					</section>
 
 				<!-- Contact Form -->
